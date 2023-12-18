@@ -26,6 +26,10 @@
         }, 300);
     }
 
+    document.getElementById("live-button").addEventListener("click", function() {
+        window.location.href = "live_project.html";
+    });
+
     /*----------- attach an event handler to document  ---------- */
     document.addEventListener("click", (event) =>{
         if(event.target.classList.contains('link-item')){
@@ -69,6 +73,84 @@
     })
 })();
 
+document.addEventListener("DOMContentLoaded", function () {
+    const portfolioItems = document.querySelectorAll(".portfolio-item");
+  
+    const filterItems = document.querySelectorAll(".filter-item");
+    const defaultNumToShow = 6;
+    let currentFilter = "all";
+  
+    // Function to handle the filtering logic
+    const filterItemsByCategory = function (category) {
+      let numToShow = category === "all" ? defaultNumToShow : portfolioItems.length;
+  
+      portfolioItems.forEach(function (item, index) {
+        if (category === "all" || item.getAttribute("data-category") === category) {
+          if (index < numToShow) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        } else {
+          item.style.display = "none";
+        }
+      });
+    };
+  
+    // Function to handle the click event on filter items
+    const handleFilterItemClick = function (event) {
+      const selectedCategory = event.target.getAttribute("data-target");
+  
+      if (selectedCategory !== currentFilter) {
+        currentFilter = selectedCategory;
+  
+        filterItems.forEach(function (item) {
+          item.classList.remove("active", "outer-shadow");
+        });
+  
+        event.target.classList.add("active", "outer-shadow");
+  
+        // Change the style of the active filter item
+        // event.target.style.color = "";
+        event.target.style.fontWeight = "bold"; // or any other style you want to apply
+  
+        filterItemsByCategory(currentFilter);
+      }
+    };
+  
+    // Add click event listeners to filter items
+    filterItems.forEach(function (item) {
+      item.addEventListener("click", handleFilterItemClick);
+    });
+  
+    // Initial filtering to show only defaultNumToShow items
+    filterItemsByCategory(currentFilter);
+  });
+  
+
+  // Code for read more content in Experience section
+function toggleReadMore() {
+    const readMoreLink = document.getElementById("readMoreLink");
+    const fullText = document.querySelector(".timeline-item-inner p");
+    const shortText = fullText.innerHTML.substring(0, 150); // Adjust the character limit as needed
+  
+    if (readMoreLink.style.display === "none" || readMoreLink.style.display === "") {
+      readMoreLink.innerHTML = ' <a href="#" onclick="toggleReadMore()">Read Less</a>';
+      fullText.innerHTML = shortText + fullText.innerHTML.substring(150);
+    } else {
+      readMoreLink.innerHTML = '... <a href="#" onclick="toggleReadMore()">Read More</a>';
+      fullText.innerHTML = shortText;
+    }
+    readMoreLink.style.display = (readMoreLink.style.display === "none" || readMoreLink.style.display === "") ? "inline" : "none";
+  }
+  
+  function toggleReadMore(element) {
+    const content = element.previousElementSibling;
+    content.classList.toggle('expanded');
+    element.textContent = content.classList.contains('expanded') ? 'Read Less' : 'Read More';
+  }
+  
+
 // about tab 
 (() => {
     const aboutSection = document.querySelector(".about-section"),
@@ -89,6 +171,7 @@
 function bodyScrollingToggle() {
     // document.body.classList.toggle("stop-scrolling");
 }
+
 
 /* --------------- portfolio filter and popup ----------------- */
 (() => {
@@ -184,10 +267,6 @@ function bodyScrollingToggle() {
 
     }
 
-    function sendmail(){
-
-    }
-
     function popupDetails(){
         if(!portfolioItems[itemIndex].querySelector(".portfolio-item-details")){
             projectDetailsBtn.style.display = "none";
@@ -256,7 +335,6 @@ function bodyScrollingToggle() {
         }
     }
     
-
     /* --------------- hide all section expect active ----------------- */
     
 })();
