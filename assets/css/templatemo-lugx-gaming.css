@@ -632,7 +632,7 @@ Header Style
   }
   .header-area .logo {
     margin-left: 0px;
-    margin-top: 30px;
+    /* margin-top: 30px; */
   }
   .header-area .menu-trigger {
     display: block !important;
@@ -676,19 +676,20 @@ Banner Style
 
 .main-banner {
   background-image: url(../images/banner-bg.jpg);
-  border-radius: 0px 0px 150px 150px;
+  border-radius: 0px 0px 0px 0px;
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 225px 0px;
 }
 
-.main-banner .caption h6 {
+.main-banner .caption h3 {
   font-size: 20px;
   text-transform: uppercase;
   color: #fff;
   font-weight: 500;
   letter-spacing: 0.5px;
+  margin-top: -10%;
 }
 
 .main-banner .caption h2 {
@@ -712,7 +713,7 @@ Banner Style
 
 .main-banner .caption p {
   color: #fff;
-  margin-bottom: 70px;
+  margin-bottom: 30px;
 }
 
 .main-banner .caption form {
@@ -756,6 +757,7 @@ Banner Style
 }
 
 .main-banner .right-image {
+  margin-left: 100px;
   position: relative;
 }
 
@@ -773,7 +775,7 @@ Banner Style
   text-transform: uppercase;
   font-weight: 700;
   color: #fff;
-  padding: 4px 15px;
+  /* padding: 4px 15px; */
 }
 
 .main-banner .right-image span.offer {
@@ -793,7 +795,26 @@ Banner Style
   line-height: 100px;
 }
 
+.functions h6{
+  padding-left: 1em;
+  padding-right: 1em;
+}
 
+.functions p{
+  padding-left: 1em;
+  padding-right: 1em;
+  background-color: rgba(185, 204, 235, 0.7);
+  border-radius: 16px;
+}
+
+.tech-stack {
+  font-size: medium;
+  color: black;
+  padding-left: 1em;
+  padding-right: 1em;
+  background-color: rgba(185, 204, 235, 0.7);
+  border-radius: 16px;
+}
 
 /* 
 ---------------------------------------------
@@ -802,7 +823,7 @@ Services Style
 */
 
 .features {
-  margin-top: -80px;
+  margin-top: -120px;
 }
 
 .features .item {
@@ -1142,7 +1163,7 @@ footer {
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url(../images/footer-bg.jpg);
-  min-height: 150px;
+  min-height: 30px;
   border-radius: 150px 150px 0px 0px;
 }
 
@@ -1623,7 +1644,7 @@ body {
 }
 
 @media (max-width: 992px) {
-  .header-area .main-nav .logo img {
+  /* .header-area .main-nav .logo img {
     max-width: 110px;
   }
   .header-area .main-nav .nav li a {
@@ -1632,19 +1653,19 @@ body {
   }
   .header-area .main-nav ul.nav {
     margin-top: 0px;
-  }
-  .background-header .main-nav ul.nav {
+  } */
+  /* .background-header .main-nav ul.nav {
     margin-top: 20px;
-  }
-  .main-banner .caption {
+  } */
+  /* .main-banner .caption {
     margin-bottom: 45px;
     text-align: center;
-  }
-  .main-banner .caption form,
+  } */
+  /* .main-banner .caption form,
   .main-banner .caption form input {
     max-width: 100%;
-  }
-  .features .item {
+  } */
+  /* .features .item {
     margin-bottom: 30px;
   }
   .trending .main-button,
@@ -1690,7 +1711,7 @@ body {
   .contact-page .right-content {
     margin-left: 0px;
     margin-top: 45px;
-  }
+  } */
 }
 
 @media (max-width: 1200px) {
